@@ -1,31 +1,25 @@
--- Core settings and options 
+-- General
+vim.opt.clipboard = "unnamedplus"
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.undofile = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.signcolumn = "yes"
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
 
-local opt = vim.opt
-local g = vim.g
+-- Formatting & UI
+vim.opt.termguicolors = true
+vim.opt.scrolloff = 8
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.inccommand = "split"
+vim.opt.diffopt:append("linematch:60")
+vim.opt.smoothscroll = true
 
--- Set leader key
-g.mapleader = " "
-g.maplocalleader = " "
-
--- Basic settings
-opt.number = true             -- Show line numbers
-opt.relativenumber = true     -- Show relative line numbers
-opt.mouse = "a"               -- Enable mouse in all modes
-opt.clipboard = "unnamedplus" -- Sync clipboard between OS and Neovim
-opt.undofile = true           -- Save undo history
-opt.ignorecase = true         -- Case-insensitive searching
-opt.smartcase = true          -- But case-sensitive if search contains capitals
-opt.signcolumn = "yes"        -- Always show the signcolumn
-opt.updatetime = 250          -- Faster completion
-opt.timeoutlen = 1000          -- Time to wait for a mapped sequence to complete
-opt.completeopt = "menuone,noselect" -- Better completion experience
-opt.termguicolors = true      -- True color support
-opt.scrolloff = 8             -- Keep 8 lines above/below cursor when scrolling
-opt.sidescrolloff = 8         -- Keep 8 columns left/right of cursor when scrolling
-opt.splitbelow = true         -- Open splits below
-opt.splitright = true         -- Open splits to the right
-opt.cursorline = true         -- Highlight current line
-opt.wrap = false              -- Disable line wrap
-
-
-return {}
+-- Auto completion
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.shortmess:append("c")
